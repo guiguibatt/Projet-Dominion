@@ -319,7 +319,11 @@ public class Player {
      * fait rien.
      */
     public void playCard(String cardName) {
-        throw new RuntimeException("Not Implemented");
+        // il reste à recupérer avec un for chaque carte et recupérer son nom
+        //pour le comparer avec equals, attention getname c'est le nom de player par de card
+        if (hand. .equals(cardName){
+            playCard(cardName);
+        }
     }
 
     /**
