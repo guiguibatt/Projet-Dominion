@@ -121,6 +121,9 @@ public class Player {
         return new ListOfCards(hand);
     }
 
+
+
+
     /**
      * Renvoie une liste de toutes les cartes possédées par le joueur
      * (le deck complet c'est-à-dire toutes les cartes dans la main, la
@@ -298,7 +301,11 @@ public class Player {
      * {@code inPlay} et exécute la méthode {@code play(Player p)} de la carte.
      */
     private void playCard(Card c) {
-        throw new RuntimeException("Not Implemented");
+
+        hand.remove(c);
+        inPlay.add(c);
+        playc();
+        // probleme ici, play player P n'existe pas (encore?)
     }
 
     /**
