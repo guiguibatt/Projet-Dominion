@@ -228,7 +228,7 @@ public class Player {
         } else{
             discard.shuffle();
             draw=discard;
-            discard= new ListOfCards;
+            discard= new ListOfCards();
 
             Card pioche = draw.get(0);
             draw.remove(0);
@@ -325,7 +325,7 @@ public class Player {
         hand.remove(c);
         inPlay.add(c);
         c.play(this);
-        // probleme ici, play player P n'existe pas (encore?)
+
     }
 
     /**
@@ -339,10 +339,11 @@ public class Player {
      * fait rien.
      */
     public void playCard(String cardName) {
-        // il reste à recupérer avec un for chaque carte et recupérer son nom
-        //pour le comparer avec equals, attention getname c'est le nom de player par de card
-        if (hand. .equals(cardName){
-            playCard(cardName);
+
+        for (Card e: hand){
+            if (hand.getCard(e.getName()) .equals(cardName)){
+                playCard(cardName);
+            }
         }
     }
 
