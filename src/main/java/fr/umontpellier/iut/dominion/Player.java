@@ -218,7 +218,19 @@ public class Player {
      * @return la carte piochée, {@code null} si aucune carte disponible
      */
     public Card drawCard() {
-        throw new RuntimeException("Not Implemented");
+        if (!draw.isEmpty()) {
+            Card pioche = draw.get(0);
+            draw.remove(0);
+            return (pioche);
+        } else{
+            discard.shuffle();
+            draw=discard;
+            discard= new ListOfCards;
+
+            Card pioche = draw.get(0);
+            draw.remove(0);
+            return(pioche);
+        }
     }
 
     /**
