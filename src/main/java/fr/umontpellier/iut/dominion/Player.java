@@ -324,7 +324,7 @@ public class Player {
 
         hand.remove(c);
         inPlay.add(c);
-        playc();
+        c.play(this);
         // probleme ici, play player P n'existe pas (encore?)
     }
 
