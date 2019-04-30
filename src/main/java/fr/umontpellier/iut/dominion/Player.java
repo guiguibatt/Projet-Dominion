@@ -128,17 +128,25 @@ public class Player {
      */
     public ListOfCards getAllCards() {
         ListOfCards allCards= new ListOfCards ();
-        for(Card e: hand) {
-            allCards.add(e);
+        if(!hand.isEmpty()) {
+            for (Card e : hand) {
+                allCards.add(e);
+            }
         }
-        for(Card e: draw) {
-            allCards.add(e);
+        if(!draw.isEmpty()) {
+            for (Card e : draw) {
+                allCards.add(e);
+            }
         }
-        for(Card e: discard) {
-            allCards.add(e);
+        if(!discard.isEmpty()) {
+            for(Card e: discard) {
+                allCards.add(e);
+            }
         }
-        for(Card e: inPlay) {
-            allCards.add(e);
+        if(!inPlay.isEmpty()) {
+            for (Card e : inPlay) {
+                allCards.add(e);
+            }
         }
         return allCards ;
     }
