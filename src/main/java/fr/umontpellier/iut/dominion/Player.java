@@ -394,7 +394,19 @@ public class Player {
      * lieu
      */
     public Card buyCard(String cardName) {
-        throw new RuntimeException("Not Implemented");
+    //chercher dans la reserve si une carte correspond au parametre
+        if (cardName.getCost() <= money){
+            //il faut transformer le cardName de String en card pour le getCost
+            money = money - //cout de la carte
+            numberOfBuys --;
+            gainFromSupply(cardName);
+            return //carte retournée;
+        }
+        else{
+            return null;
+        }
+
+
     }
 
     /**
