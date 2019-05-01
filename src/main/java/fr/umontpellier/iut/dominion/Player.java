@@ -245,7 +245,9 @@ public class Player {
      * @return la carte piochée, {@code null} si aucune carte disponible
      */
     public Card drawToHand() {
-        throw new RuntimeException("Not Implemented");
+        Card c =drawCard();
+        hand.add(c);
+        return (c);
     }
 
     /**
