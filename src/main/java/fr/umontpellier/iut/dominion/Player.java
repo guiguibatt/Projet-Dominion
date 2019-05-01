@@ -162,7 +162,11 @@ public class Player {
      * {@code getVictoryValue()}) des cartes
      */
     public int getVictoryPoints() {
-        throw new RuntimeException("Not Implemented");
+        int som=0;
+        for (Card c : getAllCards()){
+                som=+ c.getVictoryValue(this);
+        }
+        return som;
     }
 
     /**
@@ -245,7 +249,9 @@ public class Player {
      * @return la carte piochée, {@code null} si aucune carte disponible
      */
     public Card drawToHand() {
-        throw new RuntimeException("Not Implemented");
+        Card c =drawCard();
+        hand.add(c);
+        return (c);
     }
 
     /**
