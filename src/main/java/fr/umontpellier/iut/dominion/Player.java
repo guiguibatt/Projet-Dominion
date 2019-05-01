@@ -576,7 +576,20 @@ public class Player {
      * - Le joueur pioche 5 cartes en main
      */
     public void endTurn() {
-        throw new RuntimeException("Not Implemented");
+        numberOfActions = 0;
+        money = 0;
+        numberOfBuys = 0;
+
+        for (Card h : hand) {
+            discardCard(h);
+        }
+        for (Card ip : inPlay) {
+            discardCard(ip);
+        }
+
+        for (int i = 0; i < 5; i++) {
+            drawCard();
+        }
     }
 
     /**
