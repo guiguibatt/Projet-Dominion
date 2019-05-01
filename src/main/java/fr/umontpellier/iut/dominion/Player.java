@@ -363,7 +363,9 @@ public class Player {
      * emplacement précédent au préalable.
      */
     public void gain(Card c) {
-        throw new RuntimeException("Not Implemented");
+        if(!(c == null)){
+            discard.add(c);
+        }
     }
 
     /**
@@ -394,7 +396,8 @@ public class Player {
      * lieu
      */
     public Card buyCard(String cardName) {
-    //chercher dans la reserve si une carte correspond au parametre
+        throw new RuntimeException("Not Implemented");
+        /*chercher dans la reserve si une carte correspond au parametre
         if (cardName.getCost() <= money){
             //il faut transformer le cardName de String en card pour le getCost
             money = money - //cout de la carte
@@ -405,6 +408,7 @@ public class Player {
         else{
             return null;
         }
+        */
 
 
     }
@@ -654,15 +658,19 @@ public class Player {
         String input;
         while (numberOfActions > 0) {
             ListOfCards choices = new ListOfCards();
-            for (Card c : hand)
-                if (c.getTypes().contains(CardType.Action))
+            for (Card c : hand) {
+
+                if (c.getTypes().contains(CardType.Action)) {
                     choices.add(c);
-            input = chooseCard("Action phase (ENTER to pass).", choices, true);
-            if (input.equals(""))
-                break;
-            else {
-                numberOfActions -= 1;
-                playCard(input);
+                    input = chooseCard("Action phase (ENTER to pass).", choices, true);
+
+                    if (input.equals("")) {
+                        break;
+                    } else {
+                        numberOfActions -= 1;
+                        playCard(input);
+                    }
+                }
             }
         }
 
