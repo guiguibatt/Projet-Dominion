@@ -162,7 +162,11 @@ public class Player {
      * {@code getVictoryValue()}) des cartes
      */
     public int getVictoryPoints() {
-        throw new RuntimeException("Not Implemented");
+        int som=0;
+        for (Card c : getAllCards()){
+                som=+ c.getVictoryValue(this);
+        }
+        return som;
     }
 
     /**
