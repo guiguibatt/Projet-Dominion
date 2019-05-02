@@ -69,6 +69,7 @@ public class Player {
      */
     public Player(String name, Game game) {
         throw new RuntimeException("Not Implemented");
+
     }
 
     /**
@@ -389,19 +390,31 @@ public class Player {
      * lieu
      */
     public Card buyCard(String cardName) {
-        throw new RuntimeException("Not Implemented");
-        /*chercher dans la reserve si une carte correspond au parametre
-        if (cardName.getCost() <= money){
-            //il faut transformer le cardName de String en card pour le getCost
-            money = money - //cout de la carte
-            numberOfBuys --;
-            gainFromSupply(cardName);
-            return //carte retournée;
+
+        ListOfCards listeCartes;
+
+        listeCartes = game.availableSupplyCards();
+
+        
+        Card carte = listeCartes.getCard(cardName);
+
+        if (carte.toString() != null ) {
+
+            if (carte.getCost() <= money) {
+
+
+                money = money - carte.getCost();
+                        numberOfBuys--;
+                gainFromSupply(cardName);
+                return carte;
+            } else {
+                return null;
+            }
         }
-        else{
+
+        else {
             return null;
         }
-        */
 
 
     }
