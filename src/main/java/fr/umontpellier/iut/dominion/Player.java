@@ -395,7 +395,7 @@ public class Player {
 
         listeCartes = game.availableSupplyCards();
 
-        
+
         Card carte = listeCartes.getCard(cardName);
 
         if (carte.toString() != null ) {
