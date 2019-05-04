@@ -245,8 +245,16 @@ public class Game {
      * ne correspond au nom passé en argument
      */
     public Card removeFromSupply(String cardName) {
-        throw new RuntimeException("Not Implemented");
+        for (List<Card> stack : supplyStacks) {
+            if (!stack.isEmpty() && stack.get(0).getName().equals(cardName)) {
+                 Card carte = stack.get(0);
+                 stack.remove(0);
+                 return carte;
+            }
+        }
+        return null;
     }
+
 
     /**
      * Teste si la partie est terminée
