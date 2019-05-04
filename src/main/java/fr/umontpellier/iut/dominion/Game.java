@@ -227,7 +227,14 @@ public class Game {
      * ne correspond
      */
     public Card getFromSupply(String cardName) {
-        throw new RuntimeException("Not Implemented");
+
+        for (List<Card> stack : supplyStacks) {
+            if (!stack.isEmpty() && stack.get(0).getName().equals(cardName)) {
+                return stack.get(0);
+
+            }
+        }
+        return null;
     }
 
     /**
