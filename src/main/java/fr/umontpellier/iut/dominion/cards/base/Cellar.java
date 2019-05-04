@@ -28,7 +28,7 @@ public class Cellar extends Card {
 
         p.incrementActions(1);
 
-        while (chooseAgain == "yes"){
+        while (chooseAgain.equals("yes")){
 
             p.chooseCard("Choisissez une carte à écarter",CardInHand,false );
             chooseAgain =  p.chooseOption("Voulez vous continuer à jeter des cartes?"
