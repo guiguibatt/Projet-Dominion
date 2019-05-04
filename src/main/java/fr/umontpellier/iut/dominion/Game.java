@@ -129,8 +129,16 @@ public class Game {
      * @return une liste de cartes contenant la première carte de chaque pile
      * non-vide de la réserve (cartes royaume et cartes communes)
      */
-    public ListOfCards availableSupplyCards() {
-        throw new RuntimeException("Not Implemented");
+    public ListOfCards availableSupplyCards(){
+
+        ListOfCards availableSupp = new ListOfCards();
+        for (List<Card> stack : supplyStacks){
+            if (!stack.isEmpty()) {
+                Card c = stack.get(0);
+                availableSupp.add(c);
+            }
+        }
+        return availableSupp;
     }
 
     /**
