@@ -1,6 +1,11 @@
 package fr.umontpellier.iut.dominion.cards.base;
 
+import fr.umontpellier.iut.dominion.ListOfCards;
+import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.cards.Card;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Carte Avant-coureur (Harbinger)
@@ -12,5 +17,12 @@ import fr.umontpellier.iut.dominion.cards.Card;
 public class Harbinger extends Card {
     public Harbinger() {
         super("Harbinger", 3);
+    }
+
+    @Override
+    public void play(Player p){
+        p.drawToHand();
+        p.incrementActions(1);
+
     }
 }
