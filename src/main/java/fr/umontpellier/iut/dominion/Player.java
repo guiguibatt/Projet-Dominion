@@ -385,7 +385,11 @@ public class Player {
      * null} si aucune carte n'a été prise dans la réserve.
      */
     public Card gainFromSupply(String cardName) {
-        throw new RuntimeException("Not Implemented");
+        Card cardFound = this.getGame().removeFromSupply(cardName);
+        if(cardFound != null){
+            this.gain(cardFound);
+        }
+        return cardFound;
     }
 
     /**
