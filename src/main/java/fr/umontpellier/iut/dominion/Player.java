@@ -1,6 +1,8 @@
 package fr.umontpellier.iut.dominion;
 
 import fr.umontpellier.iut.dominion.cards.Card;
+import fr.umontpellier.iut.dominion.cards.common.Copper;
+import fr.umontpellier.iut.dominion.cards.common.Estate;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -70,10 +72,10 @@ public class Player {
     public Player(String name, Game game) {
         this.name = name;
         this.game = game;
-        this.discard = new CardList();
-        this.draw = new CardList();
-        this.hand = new CardList();
-        this.inPlay = new CardList();
+        this.discard = new ListOfCards();
+        this.draw = new ListOfCards();
+        this.hand = new ListOfCards();
+        this.inPlay = new ListOfCards();
         for(int i = 0; i < 7; i++){
             if(i < 3){
                 this.gain(new Estate());
