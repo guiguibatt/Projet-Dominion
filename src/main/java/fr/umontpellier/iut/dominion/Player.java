@@ -415,7 +415,7 @@ public class Player {
 
         Card carte = listeCartes.getCard(cardName);
 
-        if (carte.toString() != null ) {
+        if (carte.toString() != null && numberOfBuys >0 ) {
 
             if (carte.getCost() <= money) {
 
