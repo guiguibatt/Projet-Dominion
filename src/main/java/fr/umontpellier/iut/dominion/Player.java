@@ -135,6 +135,8 @@ public class Player {
         return new ListOfCards(hand);
     }
 
+    public ListOfCards getCardsInDiscard() {return new ListOfCards(discard);}
+
 
 
 
