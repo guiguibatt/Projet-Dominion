@@ -1,6 +1,8 @@
 package fr.umontpellier.iut.dominion;
 
 import fr.umontpellier.iut.dominion.cards.Card;
+import fr.umontpellier.iut.dominion.cards.common.Copper;
+import fr.umontpellier.iut.dominion.cards.common.Estate;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -68,8 +70,19 @@ public class Player {
      * préparer la main du joueur après avoir placé les cartes dans la défausse.
      */
     public Player(String name, Game game) {
-        throw new RuntimeException("Not Implemented");
-
+        this.name = name;
+        this.game = game;
+        this.discard = new ListOfCards();
+        this.draw = new ListOfCards();
+        this.hand = new ListOfCards();
+        this.inPlay = new ListOfCards();
+        for(int i = 0; i < 7; i++){
+            if(i < 3){
+                this.gain(new Estate());
+            }
+            this.gain(new Copper());
+        }
+        this.endTurn();
     }
 
     /**
@@ -374,7 +387,11 @@ public class Player {
      * null} si aucune carte n'a été prise dans la réserve.
      */
     public Card gainFromSupply(String cardName) {
-        throw new RuntimeException("Not Implemented");
+        Card cardFound = this.getGame().removeFromSupply(cardName);
+        if(cardFound != null){
+            this.gain(cardFound);
+        }
+        return cardFound;
     }
 
     /**
@@ -618,7 +635,7 @@ public class Player {
         }
 
         for (int i = 0; i < 5; i++) {
-            drawCard();
+            drawToHand();
         }
     }
 

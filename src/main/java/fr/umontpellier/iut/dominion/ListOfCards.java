@@ -42,7 +42,13 @@ public class ListOfCards extends ArrayList<Card> {
      * @return la carte retirée si elle a été trouvée, {@code null} sinon
      */
     public Card remove(String cardName) {
-        throw new RuntimeException("Not Implemented");
+        for (Card c: this) {
+            if (c.getName().equals(cardName)) {
+                this.remove(c);
+                return c;
+            }
+        }
+        return null;
     }
 
     /**
@@ -53,9 +59,13 @@ public class ListOfCards extends ArrayList<Card> {
      * {@code null} sinon
      */
     public Card getCard(String cardName) {
-        throw new RuntimeException("Not Implemented");
+        for (Card c: this) {
+            if (c.getName().equalsIgnoreCase(cardName)) {
+                return c;
+            }
+        }
+        return null;
     }
-
     /**
      * Représentation de la liste sous forme d'une chaîne de caractères
      *
@@ -64,6 +74,9 @@ public class ListOfCards extends ArrayList<Card> {
      * Par exemple, si la liste contient une carte Village et une carte Copper,
      * la fonction renvoie la chaîne "Village, Copper"
      */
+
+
+
     @Override
     public String toString() {
         return this.stream()
