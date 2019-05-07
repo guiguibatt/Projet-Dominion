@@ -59,9 +59,13 @@ public class ListOfCards extends ArrayList<Card> {
      * {@code null} sinon
      */
     public Card getCard(String cardName) {
-        throw new RuntimeException("Not Implemented");
+        for (Card c: this) {
+            if (c.getName().equalsIgnoreCase(cardName)) {
+                return c;
+            }
+        }
+        return null;
     }
-
     /**
      * Représentation de la liste sous forme d'une chaîne de caractères
      *
