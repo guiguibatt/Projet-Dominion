@@ -21,9 +21,10 @@ public class CouncilRoom extends Card {
 
     @Override
     public void play(Player p) {
-        for(int i = 0; i <= 3; i++) {
-            p.drawToHand();
-        }
+        p.drawToHand();
+        p.drawToHand();
+        p.drawToHand();
+        p.drawToHand();
         p.incrementBuys(1);
         List<Player> truc = new ArrayList<>();
         truc = p.getGame().otherPlayers(p);

@@ -24,5 +24,24 @@ public class Harbinger extends Card {
         p.drawToHand();
         p.incrementActions(1);
 
+        ListOfCards CardsinDiscard = p.getCardsInDiscard();
+        List<String> choices = Arrays.asList("yes","no");
+        int i = 0;
+        String chooseAgain = "no";
+
+
+        p.incrementActions(1);
+
+        while (chooseAgain.equals("no")){
+
+            p.chooseCard("Choisissez une carte à ajouter à votre pioche", CardsinDiscard ,false );
+            chooseAgain =  p.chooseOption("Voulez vous continuer à jeter des cartes?"
+                    ,choices,true);
+
+            i++;
+
+        }
+
+        p.addToDraw(p.CardsinDiscard(i));
     }
 }
