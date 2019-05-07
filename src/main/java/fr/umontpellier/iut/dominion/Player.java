@@ -236,7 +236,7 @@ public class Player {
             Card pioche = draw.get(0);
             draw.remove(0);
             return (pioche);
-        } else{
+        } else if (!discard.isEmpty()){
             discard.shuffle();
             draw=discard;
             discard= new ListOfCards();
@@ -244,6 +244,9 @@ public class Player {
             Card pioche = draw.get(0);
             draw.remove(0);
             return(pioche);
+        }
+        else{
+            return null;
         }
     }
 
