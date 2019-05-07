@@ -15,6 +15,6 @@ public class Duchy extends Card {
 
     @Override
     public int getVictoryValue(Player p) {
-        return 1;
+        return 3;
     }
 }

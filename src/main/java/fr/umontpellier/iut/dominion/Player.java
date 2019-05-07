@@ -171,7 +171,7 @@ public class Player {
     public int getVictoryPoints() {
         int som=0;
         for (Card c : getAllCards()){
-                som=+ c.getVictoryValue(this);
+                som += c.getVictoryValue(this);
         }
         return som;
     }
@@ -284,7 +284,7 @@ public class Player {
     /**
      * Renvoie une représentation de l'état du joueur sous forme d'une chaîne
      * de caractères.
-     *
+     *Actual
      * Cette représentation comporte
      * - le nom du joueur
      * - le nombre d'numberOfActions, de pièces et d'achats du joueur
@@ -443,9 +443,7 @@ public class Player {
      * Ajoute une carte sur le dessus de la pioche du joueur
      */
     public void addToDraw(Card c) {
-
-        game.removeFromSupply(c.getName());
-        draw.add(c);
+        draw.add(0, c);
     }
 
     /**
