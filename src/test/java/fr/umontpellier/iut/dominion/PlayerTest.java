@@ -42,13 +42,13 @@ class PlayerTest {
         assertEquals(5, p.getHand().size());
     }
 
-    @Disabled
+
     @Test
     void testPlayerConstructorDraw() {
         assertEquals(5, p.getDraw().size());
     }
 
-    @Disabled
+
     @Test
     void testIncrementActions() {
         p.incrementActions(2);
@@ -57,7 +57,7 @@ class PlayerTest {
         assertEquals(1, p.getNumberOfActions());
     }
 
-    @Disabled
+
     @Test
     void testIncrementMoney() {
         p.incrementMoney(2);
@@ -66,7 +66,7 @@ class PlayerTest {
         assertEquals(1, p.getMoney());
     }
 
-    @Disabled
+
     @Test
     void testIncrementBuys() {
         p.incrementBuys(2);
@@ -86,7 +86,7 @@ class PlayerTest {
         assertEquals(drawSize - 1, p.getDraw().size());
     }
 
-    @Disabled
+
     @Test
     void testDrawCardEmptyDraw() {
         p.getDiscard().clear();
@@ -109,7 +109,7 @@ class PlayerTest {
         assertNull(p.drawCard());
     }
 
-    @Disabled
+
     @Test
     void testCardsInHand() {
         //test que le getCardsInHand renvoie bien une liste indépendante
@@ -121,7 +121,7 @@ class PlayerTest {
         assertEquals(p.getHand(), l);
     }
 
-    @Disabled
+
     @Test
     void testTotalCards() {
         assertEquals(10, p.getAllCards().size());
@@ -150,7 +150,7 @@ class PlayerTest {
         assertEquals(12, p.getVictoryPoints());
     }
 
-    @Disabled
+
     @Test
     void testPlayCardValid() {
 

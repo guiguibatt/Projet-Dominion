@@ -335,8 +335,9 @@ public class Player {
      */
     private void playCard(Card c) {
 
-        hand.remove(c);
-        inPlay.add(c);
+
+        inPlay.add(hand.remove(c.getName()));
+
         c.play(this);
 
     }
@@ -353,11 +354,10 @@ public class Player {
      */
     public void playCard(String cardName) {
 
-        for (Card e: hand){
-            if (hand.getCard(e.getName()) .equals(cardName)){
-                playCard(cardName);
-            }
-        }
+       Card c = null;
+       if((c=this.hand.getCard(cardName))!= null){
+           this.playCard(c);
+       }
     }
 
     /**
