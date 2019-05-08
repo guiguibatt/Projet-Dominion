@@ -21,16 +21,16 @@ public class CouncilRoom extends Card {
 
     @Override
     public void play(Player p) {
-        p.drawToHand();
-        p.drawToHand();
-        p.drawToHand();
-        p.drawToHand();
-        p.incrementBuys(1);
-        List<Player> truc = new ArrayList<>();
-        truc = p.getGame().otherPlayers(p);
+        for (int i = 0; i < 4; i++) {
+            p.drawToHand();
+        }
 
-        for (Player player : truc) {
-            player.drawToHand();
+        p.incrementBuys(1);
+
+        List<Player> opponents;
+        opponents = p.getOtherPlayers();
+        for (Player op : opponents) {
+            op.drawToHand();
         }
 
     }
