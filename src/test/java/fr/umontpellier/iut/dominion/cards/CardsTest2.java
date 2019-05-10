@@ -137,7 +137,7 @@ class CardsTest2 {
         assertTrue(hasCards(p0.getDiscard(), "Silver", "Silver", "Duchy"));
     }
 
-    @Disabled
+
     @Test
     void testMoneylenderWithCopper() {
         p2.getHand().clear();
