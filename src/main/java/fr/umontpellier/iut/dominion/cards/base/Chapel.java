@@ -19,20 +19,25 @@ public class Chapel extends Card {
 
     @Override
     public void play(Player p) {
-            ListOfCards CardInHand = p.getCardsInHand();
-            List<String> choices = Arrays.asList("yes","no");
+            ListOfCards cardInHand = p.getCardsInHand();
             int i = 0;
-            String chooseAgain = "yes";
 
-            while (chooseAgain == "yes" && i < 4) {
 
-            p.chooseCard("Choisissez une carte à écarter",CardInHand,false );
-            chooseAgain =  p.chooseOption("Voulez vous continuer à jeter des cartes?"
-                    ,choices,false);
+        String choice="texte-non-vide";
 
-            i++;
+        while ( !choice.equals("") && i<4){
+            choice = p.chooseCard("Choisissez une carte à écarter",cardInHand,true );
+
+
+            for (Card c : p.getCardsInHand()) {
+                if (choice.equals(c.getName())) {
+                    p.removeFromHand(choice);
+                    i++;
+                }
 
             }
 
         }
+
     }
+}
