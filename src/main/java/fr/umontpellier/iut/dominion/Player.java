@@ -65,7 +65,7 @@ public class Player {
      *
      * @param name: le nom du joueur
      * @param game: le jeu en cours
-     *
+     *a
      * Indications: On peut utiliser la méthode {@code endTurn()} pour
      * préparer la main du joueur après avoir placé les cartes dans la défausse.
      */

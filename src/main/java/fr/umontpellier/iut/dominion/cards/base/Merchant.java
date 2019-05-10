@@ -21,6 +21,4 @@ public class Merchant extends Card {
         p.incrementActions(1);
 
     }
-
-
 }
