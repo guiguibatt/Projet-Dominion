@@ -25,12 +25,28 @@ public class Militia extends Card {
 
         List<Player> opponents;
         opponents = p.getOtherPlayers();
-        ListOfCards CardInHand = p.getCardsInHand();
+
+
+
 
         for (Player op : opponents) {
+            ListOfCards cardInHand = op.getCardsInHand();
             while (op.getCardsInHand().size() > 3) {
 
-                p.chooseCard("Choisissez une carte à écarter", CardInHand, false);
+                String choice = op.chooseCard("Choisissez une carte à défausser", cardInHand, false);
+                int i =0;
+
+                for (Card c : op.getCardsInHand()) {
+                    if (choice.equals(c.getName()) && i==0) {
+                        op.discardCard(cardInHand.getCard(choice));
+                        op.removeFromHand(choice);
+                        cardInHand.remove(choice);
+                        i=1;
+                    }
+
+                }
+
+
 
             }
         }
