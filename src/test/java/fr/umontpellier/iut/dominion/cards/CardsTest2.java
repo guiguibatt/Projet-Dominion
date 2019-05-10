@@ -44,6 +44,7 @@ class CardsTest2 {
     }
 
 
+
     @Test
     void testCellar() {
         p2.getHand().add(new Cellar());
@@ -60,7 +61,7 @@ class CardsTest2 {
         assertNull(p2.getHand().getCard("Duchy"));
     }
 
-    @Disabled
+
     @Test
     void testChapel() {
         p2.getHand().add(new Chapel());

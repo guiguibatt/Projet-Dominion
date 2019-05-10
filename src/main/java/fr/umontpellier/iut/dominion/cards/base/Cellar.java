@@ -19,10 +19,10 @@ public class Cellar extends Card {
         super("Cellar", 2);
     }
 
-    /*@Override
+    @Override
     public void play(Player p) {
         ListOfCards cardInHand = p.getCardsInHand();
-        int i = 0;
+        int i =0;
 
 
         p.incrementActions(1);
@@ -31,18 +31,23 @@ public class Cellar extends Card {
         while ( !choice.equals("")){
             choice = p.chooseCard("Choisissez une carte à écarter",cardInHand,true );
 
+            for (Card c : p.getCardsInHand()) {
+                if (choice.equals(c.getName())) {
+                    p.discardCard(cardInHand.getCard(choice));
+                    p.removeFromHand(choice);
+                    i++;
+                }
 
-
-            p.discardCard(cardInHand.getCard(choice));
-
-
-            i++;
+            }
 
         }
 
-        while (i != 0){
-        p.drawToHand();
-        i--;
-    }*/
+
+        for (int j = 0; j < i; j++) {
+            p.drawToHand();
+
+        }
+
+
 }
 }
