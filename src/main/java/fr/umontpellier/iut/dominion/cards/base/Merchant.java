@@ -19,8 +19,13 @@ public class Merchant extends Card {
     public void play(Player p) {
         p.drawToHand();
         p.incrementActions(1);
+        int i=0;
 
-
+        for (Card c:p.getInPlay()){
+            if (c.getName().equals("Silver")&& i==0){
+                p.incrementMoney(1);
+                i=1;
+            }
         }
 
     }
