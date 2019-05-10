@@ -20,5 +20,8 @@ public class Merchant extends Card {
         p.drawToHand();
         p.incrementActions(1);
 
+
+        }
+
     }
 }

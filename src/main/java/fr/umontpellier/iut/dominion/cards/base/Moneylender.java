@@ -25,9 +25,10 @@ public class Moneylender extends Card {
         boolean lever = false;
 
         for (Card carte : CardInHand) {
-            if (carte.toString().equals("copper")  && !lever) {
+            if (carte.toString().equals("Copper")  && !lever) {
                 lever = true;
                 p.discardCard(carte);
+                p.removeFromHand("Copper");
                 p.incrementMoney(3);
             }
         }
