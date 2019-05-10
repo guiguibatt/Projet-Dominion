@@ -108,7 +108,7 @@ class CardsTest2 {
         assertEquals(3, p2.getHand().size());            // p0 a toujours les mêmes cartes en main
     }
 
-    @Disabled
+
     @Test
     void testMilitia() {
         p0.getHand().clear();
