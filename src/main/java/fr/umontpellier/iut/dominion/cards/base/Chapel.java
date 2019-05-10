@@ -33,5 +33,6 @@ public class Chapel extends Card {
             i++;
 
             }
+
         }
     }

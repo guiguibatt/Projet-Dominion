@@ -19,7 +19,7 @@ public class Harbinger extends Card {
         super("Harbinger", 3);
     }
 
-    @Override
+    /*@Override
     public void play(Player p){
         p.drawToHand();
         p.incrementActions(1);
@@ -43,5 +43,5 @@ public class Harbinger extends Card {
         }
 
         p.addToDraw(p.CardsinDiscard(i));
-    }
+    }*/
 }

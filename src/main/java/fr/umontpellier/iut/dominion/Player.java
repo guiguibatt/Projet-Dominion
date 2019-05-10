@@ -274,6 +274,13 @@ public class Player {
     }
 
     /**
+     * Retire une carte de la main du joueur
+     */
+    public void removeFromHand(String cardName){
+        hand.remove(cardName);
+    }
+
+    /**
      * Défausse une carte.
      *
      * La carte est ajoutée à la pile de défausse du joueur. On suppose que la carte
