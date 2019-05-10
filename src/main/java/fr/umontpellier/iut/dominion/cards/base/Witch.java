@@ -25,7 +25,8 @@ public class Witch extends Card {
 
 
         for (Player op : opponents) {
-            op.gainFromSupply("curse");
+            op.gainFromSupply("Curse");
+
         }
 
     }
