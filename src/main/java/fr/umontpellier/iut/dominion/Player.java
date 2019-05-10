@@ -137,7 +137,7 @@ public class Player {
 
     public ListOfCards getCardsInDiscard() {return new ListOfCards(discard);}
 
-
+    public ListOfCards getCardsInSupply() {return new ListOfCards(game.availableSupplyCards());}
 
 
     /**
