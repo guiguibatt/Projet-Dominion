@@ -19,7 +19,7 @@ public class Cellar extends Card {
         super("Cellar", 2);
     }
 
-    /*@Override
+    @Override
     public void play(Player p) {
         ListOfCards cardInHand = p.getCardsInHand();
         int i = 0;
@@ -43,6 +43,6 @@ public class Cellar extends Card {
         while (i != 0){
         p.drawToHand();
         i--;
-    }*/
+    }
 }
 }

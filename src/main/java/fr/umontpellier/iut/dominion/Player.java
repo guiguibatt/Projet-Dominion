@@ -280,6 +280,10 @@ public class Player {
         hand.remove(cardName);
     }
 
+    public void removeFromDiscard(String cardName){
+        discard.remove(cardName);
+    }
+
     /**
      * Défausse une carte.
      *

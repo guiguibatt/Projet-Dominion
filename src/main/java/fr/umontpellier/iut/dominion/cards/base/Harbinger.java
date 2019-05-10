@@ -19,29 +19,21 @@ public class Harbinger extends Card {
         super("Harbinger", 3);
     }
 
-    /*@Override
+    @Override
     public void play(Player p){
         p.drawToHand();
         p.incrementActions(1);
 
-        ListOfCards CardsinDiscard = p.getCardsInDiscard();
-        List<String> choices = Arrays.asList("yes","no");
+        ListOfCards cardsInDiscard = new ListOfCards();
+        cardsInDiscard = p.getCardsInDiscard();
         int i = 0;
-        String chooseAgain = "no";
 
 
-        p.incrementActions(1);
+        String choice = p.chooseCard("Choisissez une carte à ajouter à votre pioche", cardsInDiscard ,false );
 
-        while (chooseAgain.equals("no")){
+        Card c = cardsInDiscard.getCard(choice);
+        p.addToDraw(c);
+        p.removeFromDiscard(choice);
 
-            p.chooseCard("Choisissez une carte à ajouter à votre pioche", CardsinDiscard ,false );
-            chooseAgain =  p.chooseOption("Voulez vous continuer à jeter des cartes?"
-                    ,choices,true);
-
-            i++;
-
-        }
-
-        p.addToDraw(p.CardsinDiscard(i));
-    }*/
+    }
 }
