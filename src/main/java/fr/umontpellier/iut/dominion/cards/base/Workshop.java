@@ -24,7 +24,7 @@ public class Workshop extends Card {
             String choice = p.chooseCard("Choisissez une carte à ajouter à votre pioche", cardsInSupply ,false );
 
             Card cardFound = p.getGame().removeFromSupply(choice);
-            if(cardFound != null && cardFound.getCost()<4 ) {
+            if(cardFound != null && cardFound.getCost()<5 ) {
                 p.gain(cardFound);
                 n = true;
             }
