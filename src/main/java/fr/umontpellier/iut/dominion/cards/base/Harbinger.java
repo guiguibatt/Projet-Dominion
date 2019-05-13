@@ -26,7 +26,6 @@ public class Harbinger extends Card {
 
         ListOfCards cardsInDiscard = new ListOfCards();
         cardsInDiscard = p.getCardsInDiscard();
-        int i = 0;
 
 
         String choice = p.chooseCard("Choisissez une carte à ajouter à votre pioche", cardsInDiscard ,false );
