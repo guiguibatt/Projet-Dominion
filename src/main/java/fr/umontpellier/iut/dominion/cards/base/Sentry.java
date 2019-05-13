@@ -36,7 +36,7 @@ public class Sentry extends Card {
             choiceTrash = p.chooseCard("Choisissez une carte à écarter", twoFromDeck, true);
             i++;
 
-            for (Card c : twoFromDeck) {
+            for (Card c : new ListOfCards(twoFromDeck)) {
                 if (choiceTrash.equals(c.getName())) {
                     twoFromDeck.remove(c.getName());
                 }
@@ -48,9 +48,9 @@ public class Sentry extends Card {
             choiceDiscard = p.chooseCard("Choisissez une carte à défausser", twoFromDeck, false);
             i++;
 
-            for (Card c : twoFromDeck) {
+            for (Card c : new ListOfCards(twoFromDeck)) {
                 if (choiceDiscard.equals(c.getName())) {
-                    p.addToDraw(c);
+                    p.discardCard(c);
                     twoFromDeck.remove(c);
 
                 }

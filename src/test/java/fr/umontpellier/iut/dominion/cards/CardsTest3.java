@@ -162,7 +162,7 @@ class CardsTest3 {
         assertEquals(5, p1.getMoney());
     }
 
-    @Disabled
+
     @Test
     void testSentryTrash1Discard1() {
         p1.getHand().add(new Sentry());
