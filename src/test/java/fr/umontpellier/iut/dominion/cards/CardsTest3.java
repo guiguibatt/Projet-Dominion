@@ -184,7 +184,7 @@ class CardsTest3 {
         assertTrue(p1.getDiscard().contains(silver));
     }
 
-    @Disabled
+
     @Test
     void testSentryPassTwice() {
         p1.getHand().add(new Sentry());

@@ -32,7 +32,7 @@ public class Sentry extends Card {
         String choiceDiscard = "texte-non-vide";
         int i = 0;
 
-        while (!choiceTrash.equals("") || i < 2) {
+        while (!choiceTrash.equals("") && i < 2) {
             choiceTrash = p.chooseCard("Choisissez une carte à écarter", twoFromDeck, true);
             i++;
 
@@ -44,8 +44,8 @@ public class Sentry extends Card {
         }
 
 
-        while (!choiceDiscard.equals("") || i < 3) {
-            choiceDiscard = p.chooseCard("Choisissez une carte à défausser", twoFromDeck, false);
+        while (!choiceDiscard.equals("") && i < 3) {
+            choiceDiscard = p.chooseCard("Choisissez une carte à défausser", twoFromDeck, true);
             i++;
 
             for (Card c : new ListOfCards(twoFromDeck)) {
@@ -57,6 +57,19 @@ public class Sentry extends Card {
 
             }
 
+
+        }
+
+        while (!twoFromDeck.isEmpty()){
+
+            String choiceDeck = p.chooseCard("Choisissez une carte à poser sur votre deck", twoFromDeck, false);
+            for (Card c : new ListOfCards(twoFromDeck)) {
+                if (choiceDeck.equals(c.getName())) {
+                    p.addToDraw(c);
+                    twoFromDeck.remove(c);
+                }
+
+            }
 
         }
     }
