@@ -2,6 +2,7 @@ package fr.umontpellier.iut.dominion.cards.base;
 
 import fr.umontpellier.iut.dominion.cards.Card;
 import fr.umontpellier.iut.dominion.Player;
+import fr.umontpellier.iut.dominion.CardType;
 
 /**
  * Carte Salle du trône (Throne Room)
@@ -14,12 +15,10 @@ public class ThroneRoom extends Card {
         super("Throne Room", 4);
     }
 
-    public ThroneRoom(String name, int cost) {
-        super(name, cost);
-    }
+
 
     public void play(Player p) {
-        String cardName = p.chooseCard("Choisissez 1 carte Action de votre main a jouer 2 fois", p.getCardsInHand(), true);
+        String cardName = p.chooseCard("Choisissez 1 carte Action de votre main a jouer 2 fois", p.getCardsInHand().contains(CardType.Action), true);
         if (!cardName.equals("")) {
             p.playCard(cardName);
             p.getHand().add(p.getInPlay().remove(cardName));
