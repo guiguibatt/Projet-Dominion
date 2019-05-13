@@ -1,6 +1,5 @@
 package fr.umontpellier.iut.dominion.cards.base;
 
-import fr.umontpellier.iut.dominion.ListOfCards;
 import fr.umontpellier.iut.dominion.cards.Card;
 import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.CardType;
@@ -18,18 +17,9 @@ public class ThroneRoom extends Card {
 
 
 
-
     public void play(Player p) {
-
-        ListOfCards cardsInHand = new ListOfCards();
-        cardsInHand = p.getCardsInHand();
-
-        String cardName = p.chooseCard("Choisissez 1 carte Action de votre main a jouer 2 fois", cardsInHand, true);
-
-        ListOfCards c = new ListOfCards();
-        c.add(cardsInHand.getCard(cardName));
-
-        if (c.contains(CardType.Action)) {
+        String cardName = p.chooseCard("Choisissez 1 carte Action de votre main a jouer 2 fois", p.getCardsInHand().contains(CardType.Action), true);
+        if (!cardName.equals("")) {
             p.playCard(cardName);
             p.getHand().add(p.getInPlay().remove(cardName));
             p.playCard(cardName);
