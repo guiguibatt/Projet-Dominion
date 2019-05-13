@@ -1,5 +1,7 @@
 package fr.umontpellier.iut.dominion.cards.base;
 
+import fr.umontpellier.iut.dominion.CardType;
+import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.cards.Card;
 
 /**
@@ -12,4 +14,11 @@ public class Vassal extends Card {
     public Vassal() {
         super("Vassal", 3);
     }
+
+    @Override
+    public void play(Player p){
+        p.incrementBuys(2);
+        Card c = p.drawCard();
+
+}
 }
