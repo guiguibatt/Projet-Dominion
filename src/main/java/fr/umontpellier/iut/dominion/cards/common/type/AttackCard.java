@@ -10,7 +10,7 @@ public abstract class AttackCard extends ActionCard {
 
     public AttackCard(String name, int cost) {
         super(name, cost);
-        // TODO Auto-generated constructor stub
+
     }
 
     public boolean PlayerHasMoatInHand(Player p){
