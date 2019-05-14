@@ -5,6 +5,8 @@ import fr.umontpellier.iut.dominion.Player;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
 /**
  * Carte Douves (Moat)
  *
@@ -27,7 +29,8 @@ public class Moat extends Card {
     }
 
     public boolean devoileCarte(Player p) {
-        String answer = (String) p.choose("Do you want to play your moat card ?", new ArrayList(Arrays.asList("y", "n")), false,true);
+        List<String> choices = Arrays.asList("y", "n");
+        String answer = (String) p.choose("Voulez vous jouer votre carte Douves?", choices , false,true);
         return answer.equalsIgnoreCase("y");
     }
     }
