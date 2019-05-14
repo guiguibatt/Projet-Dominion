@@ -84,7 +84,7 @@ class CardsTest2 {
         assertNotNull(p2.getDiscard().getCard("Silver"));
     }
 
-    @Disabled
+
     @Test
     void testBureaucrat() {
         p0.getHand().clear();

@@ -17,7 +17,7 @@ public class ThroneRoom extends Card {
 
 
 
-   /* public void play(Player p) {
+    public void play(Player p) {
         String cardName = p.chooseCard("Choisissez 1 carte Action de votre main a jouer 2 fois", p.getCardsInHand().contains(CardType.Action), true);
         if (!cardName.equals("")) {
             p.playCard(cardName);
@@ -26,5 +26,5 @@ public class ThroneRoom extends Card {
         }
 
     }
-*/
+
 }
