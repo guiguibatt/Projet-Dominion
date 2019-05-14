@@ -84,7 +84,7 @@ class CardsTest2 {
         assertNotNull(p2.getDiscard().getCard("Silver"));
     }
 
-
+    @Disabled
     @Test
     void testBureaucrat() {
         p0.getHand().clear();
@@ -166,7 +166,7 @@ class CardsTest2 {
         assertTrue(hasCards(p2.getHand(), "Silver", "Silver"));
     }
 
-    @Disabled
+
     @Test
     void testRemodel() {
         p2.getHand().add(new Remodel());
