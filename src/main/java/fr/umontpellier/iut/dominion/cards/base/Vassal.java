@@ -25,13 +25,19 @@ public class Vassal extends Card {
             Card remove = p.drawCard();
             List<String> choices = Arrays.asList("y","n");
 
+
+
             String choice = p.chooseOption("voulez vous jouer" + remove.getName(), choices,false);
 
-            if(remove.getTypes().contains(CardType.Action) && choice.equals("y")){
+            if (choice.equals("y")) {
+                if (!remove.getName().equals("Curse") || !remove.getName().equals("Copper")|| !remove.getName().equals("Duchy")
+                        || !remove.getName().equals("Estate") || !remove.getName().equals("Gold") || !remove.getName().equals("Province")
+                        || !remove.getName().equals("Silver") || !remove.getName().equals("Gardens")){ // cette ligne est a changer si le type card est implanté
 
-                p.addToInPlay(remove);
-                remove.play(p);
+                    p.addToInPlay(remove);
+                    remove.play(p);
 
+                }
             }
             else{p.discardCard(remove);
             }
