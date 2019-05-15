@@ -4,7 +4,7 @@ import fr.umontpellier.iut.dominion.CardType;
 
 import java.util.List;
 
-public abstract class ActionCard extends Card {
+public class ActionCard extends Card {
     public ActionCard(String name, int cost) {
         super(name, cost);
     }
