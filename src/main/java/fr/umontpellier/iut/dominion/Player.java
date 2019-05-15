@@ -134,6 +134,10 @@ public class Player {
     public ListOfCards getCardsInHand() { return new ListOfCards(hand);
     }
 
+    public ListOfCards getCardsInDraw() {
+        return new ListOfCards(draw);
+    }
+
     public ListOfCards getCardsInDiscard() {return new ListOfCards(discard);}
 
     public ListOfCards getCardsInSupply() {return new ListOfCards(game.availableSupplyCards());}
@@ -271,6 +275,12 @@ public class Player {
     public void addToHand(Card c) {
         hand.add(c);
     }
+
+
+    public void addToInPlay(Card c) {
+        inPlay.add(c);
+    }
+
 
     /**
      * Retire une carte de la main du joueur

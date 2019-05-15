@@ -74,7 +74,7 @@ class CardsTest2 {
         assertEquals(0, p2.getDiscard().size());
     }
 
-    @Disabled
+
     @Test
     void testWorkshop() {
         p2.getHand().add(new Workshop());
@@ -84,7 +84,7 @@ class CardsTest2 {
         assertNotNull(p2.getDiscard().getCard("Silver"));
     }
 
-    @Disabled
+
     @Test
     void testBureaucrat() {
         p0.getHand().clear();
@@ -191,7 +191,7 @@ class CardsTest2 {
         assertEquals(6, p2.getHand().size());
     }
 
-    @Disabled
+
     @Test
     void testMine() {
         p2.getHand().clear();
@@ -219,7 +219,7 @@ class CardsTest2 {
         assertEquals(7, p1.getHand().size());
     }
 
-    @Disabled
+
     @Test
     void testPoacher() {
         p1.getHand().add(new Poacher());
@@ -257,7 +257,7 @@ class CardsTest2 {
         assertEquals(silver, p1.getDraw().get(0));      // Silver est sur le deck
     }
 
-    @Disabled
+
     @Test
     void testVassalPlayAction() {
         p1.getHand().add(new Vassal());
@@ -274,7 +274,7 @@ class CardsTest2 {
         assertTrue(p1.getInPlay().contains(village));
     }
 
-    @Disabled
+
     @Test
     void testVassalNotAction() {
         p1.getHand().add(new Vassal());

@@ -6,6 +6,8 @@ import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.CardType;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
 /**
  * Carte Bibliothèque (Library)
  *
@@ -23,14 +25,19 @@ public class Library extends Card {
         while(p.getHand().size() < 7) {
             Card cartePioche = p.drawToHand();
             if (cartePioche != null && cartePioche.getTypes().contains(CardType.Action)) {
+                List<String> choices = Arrays.asList("y", "n");
+                String choice = p.choose("Voulez vous mettre cette carte de côté?", choices, false, true);
 
-                String veutMettreDeCote = p.choose("Do you want to put it in the discard instead of your hand?", new ArrayList(Arrays.asList("y", "n")), false, false);
-                if (veutMettreDeCote.equalsIgnoreCase("y")) {
-                    carteDeCote.add(p.getHand().remove(cartePioche.getName()));
+
+                    if (choice.equals("y")){
+                        carteDeCote.add(cartePioche);
+                        p.removeFromHand(choice);
+
+                    }
 
                 }
             }
-        }
+
 
         p.getDiscard().addAll(carteDeCote);
     }

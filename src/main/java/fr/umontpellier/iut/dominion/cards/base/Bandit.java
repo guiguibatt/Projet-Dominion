@@ -40,7 +40,7 @@ public class Bandit extends Card {
                 }
             }
 
-            String choice = p.chooseCard("Choisissez un trésor à écarter",twoFromDeckTreasure,false);
+            String choice = p.chooseCard("Choisissez un trésor autre que le cuivre à écarter",twoFromDeckTreasure,false);
             twoFromDeckTreasure.remove(choice);
             op.removeFromHand(choice);
 

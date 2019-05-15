@@ -157,6 +157,23 @@ public class Game {
     }
 
     /**
+     * Renvoie le nombre de cartes qui ne sont pas disponibles à l'achat dans la
+     * réserve.
+     *
+     **/
+
+    public int nonAvailableSupplyCards(){
+
+        int count = 0;
+        for (List<Card> stack : supplyStacks){
+            if (stack.isEmpty()) {
+                count ++;
+            }
+        }
+        return count;
+    }
+
+    /**
      * Renvoie une représentation de l'état de la partie sous forme d'une chaîne
      * de caractères.
      *

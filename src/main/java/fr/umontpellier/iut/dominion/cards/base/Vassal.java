@@ -4,6 +4,9 @@ import fr.umontpellier.iut.dominion.CardType;
 import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.cards.Card;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Carte Vassal
  *
@@ -17,8 +20,28 @@ public class Vassal extends Card {
 
     @Override
     public void play(Player p){
-        p.incrementBuys(2);
-        Card c = p.drawCard();
+        p.incrementMoney(2);
+        if (p.getCardsInDiscard().size() + p.getCardsInDraw().size() > 0){
+            Card remove = p.drawCard();
+            List<String> choices = Arrays.asList("y","n");
+
+
+
+            String choice = p.chooseOption("voulez vous jouer" + remove.getName(), choices,false);
+
+            if (choice.equals("y")) {
+                if (!remove.getName().equals("Curse") || !remove.getName().equals("Copper")|| !remove.getName().equals("Duchy")
+                        || !remove.getName().equals("Estate") || !remove.getName().equals("Gold") || !remove.getName().equals("Province")
+                        || !remove.getName().equals("Silver") || !remove.getName().equals("Gardens")){ // cette ligne est a changer si le type card est implanté
+
+                    p.addToInPlay(remove);
+                    remove.play(p);
+
+                }
+            }
+            else{p.discardCard(remove);
+            }
+        }
 
 }
 }
