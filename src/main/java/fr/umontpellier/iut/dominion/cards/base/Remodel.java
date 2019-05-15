@@ -15,25 +15,34 @@ public class Remodel extends Card {
         super("Remodel", 4);
     }
 
-    public Remodel(String name, int cost) {
-        super(name, cost);
-    }
-
+    @Override
     public void play(Player p) {
-        new ListOfCards();
-        ListOfCards cartesAChoisir = new ListOfCards();
-        if (p.getHand().size() > 0) {
-            Card carteEcarte = p.getHand().remove(p.chooseCard("Choisissez une carte a écarter de votre main :", p.getHand(), false));
-            int cost = carteEcarte.getCost();
+        ListOfCards cardsInHand = new ListOfCards();
+        cardsInHand = p.getCardsInHand();
+        int cout = 0;
 
-            for(int h = 0; h < cost + 3; ++h) {
-                ListOfCards curList = p.getGame().getCardsByCost(h);
-                cartesAChoisir.addAll(curList);
+        String choice = p.chooseCard("Choisissez une carte à écarter", cardsInHand, false);
+
+        for (Card c : new ListOfCards(p.getCardsInHand())) {
+            if (choice.equals(c.getName())) {
+                cout = c.getCost() + 3; // le plus trois compense le fait que ce soit un < et pas un <= dans la verification du coût
+
+                p.removeFromHand(choice);
+
             }
+        }
 
+        ListOfCards cardsInSupply = p.getCardsInSupply();
 
-            String carteGagne = p.chooseCard("Choisissez une carte :", cartesAChoisir, true);
-            p.gain(p.getGame().removeFromSupply(carteGagne));
+        boolean n = false;
+        while (!n) {
+            String choice2 = p.chooseCard("Choisissez une carte coutant 2 de plus que celle jetée à ajouter à votre pioche", cardsInSupply, false);
 
+            Card cardFound = p.getGame().removeFromSupply(choice2);
+            if (cardFound != null && cardFound.getCost() < cout) {
+                p.gain(cardFound);
+                n = true;
+            }
+        }
     }
 }
