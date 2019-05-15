@@ -25,7 +25,15 @@ public class ThroneRoom extends Card {
         int cout = 0;
 
         for (Card c : p.getCardsInHand()) {
-            if (c.getName().equals("Copper") || c.getName().equals("Silver") || c.getName().equals("Gold") ) {
+            if (c.getName().equals("Cellar") || c.getName().equals("Chapel") || c.getName().equals("Harbinger")
+                    || c.getName().equals("Merchant") || c.getName().equals("Vassal") || c.getName().equals("Village")
+                    || c.getName().equals("Workshop")|| c.getName().equals("Bureaucrat")|| c.getName().equals("Gardens")
+                    || c.getName().equals("Militia")|| c.getName().equals("Poacher")|| c.getName().equals("Moneylender")
+                    || c.getName().equals("Remodel")|| c.getName().equals("Smithy")|| c.getName().equals("ThroneRoom")
+                    || c.getName().equals("Bandit")|| c.getName().equals("CouncilRoom")|| c.getName().equals("Festival")
+                    || c.getName().equals("Laboratory")|| c.getName().equals("Library")|| c.getName().equals("Market")
+                    || c.getName().equals("Mine")|| c.getName().equals("Sentry")|| c.getName().equals("Witch")
+                    || c.getName().equals("Artisan") || c.getName().equals("Moat")) {
                 actionCardInHand.add(c);
             }
         }
