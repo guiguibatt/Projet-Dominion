@@ -23,7 +23,7 @@ public class Remodel extends Card {
         new ListOfCards();
         ListOfCards cartesAChoisir = new ListOfCards();
         if (p.getHand().size() > 0) {
-            Card carteEcarte = p.getHand().remove(p.chooseCard("Choose a card to put in your discard", p.getHand(), false));
+            Card carteEcarte = p.getHand().remove(p.chooseCard("Choisissez une carte a écarter de votre main :", p.getHand(), false));
             int cost = carteEcarte.getCost();
 
             for(int h = 0; h < cost + 3; ++h) {
@@ -32,7 +32,7 @@ public class Remodel extends Card {
             }
 
 
-            String carteGagne = p.chooseCard("Choose a card (ENTER TO PASS)", cartesAChoisir, true);
+            String carteGagne = p.chooseCard("Choisissez une carte :", cartesAChoisir, true);
             p.gain(p.getGame().removeFromSupply(carteGagne));
 
     }
