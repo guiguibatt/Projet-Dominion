@@ -1,12 +1,15 @@
 package fr.umontpellier.iut.dominion.cards.base;
 
-import fr.umontpellier.iut.dominion.ListOfCards;
-import fr.umontpellier.iut.dominion.cards.Card;
-import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.CardType;
+import fr.umontpellier.iut.dominion.ListOfCards;
+import fr.umontpellier.iut.dominion.Player;
+import fr.umontpellier.iut.dominion.cards.Card;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static fr.umontpellier.iut.dominion.CardType.Action;
 
 /**
  * Carte Bibliothèque (Library)
@@ -19,26 +22,43 @@ public class Library extends Card {
         super("Library", 5);
     }
 
+    @Override
+    public List<CardType> getTypes() {
+        ArrayList types = new ArrayList<>();
+        types.add(Action);
+        return types;
+    }
+
+    @Override
     public void play(Player p) {
-        ListOfCards carteDeCote = new ListOfCards();
 
-        while(p.getHand().size() < 7) {
-            Card cartePioche = p.drawToHand();
-            if (cartePioche != null && cartePioche.getTypes().contains(CardType.Action)) {
-                List<String> choices = Arrays.asList("y", "n");
-                String choice = p.choose("Voulez vous mettre cette carte de côté?", choices, false, true);
+        ListOfCards stock = new ListOfCards();
+        List<String> choices = Arrays.asList("y", "n");
+
+        while (p.getCardsInHand().size() < 7) {
+
+            Card c = p.drawToHand();
 
 
-                    if (choice.equals("y")){
-                        carteDeCote.add(cartePioche);
-                        p.removeFromHand(choice);
-
-                    }
-
-                }
+            if (c == null) {
+                break;
             }
 
 
-        p.getDiscard().addAll(carteDeCote);
+            if (c.getTypes().contains(Action)) {
+
+                String input = p.chooseOption("Voulez-vous mettre la carte " + c.getName() + " de côté ? y / n.", choices, false);
+
+                if (input.equals("y")) {
+                    stock.add(p.removeFromHand(c.getName()));
+                }
+
+            }
+        }
+
+
+        for (Card c: stock) {
+            p.discardCard(c);
+        }
     }
 }
