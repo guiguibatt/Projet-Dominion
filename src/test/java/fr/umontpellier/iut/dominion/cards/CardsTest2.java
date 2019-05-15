@@ -191,7 +191,7 @@ class CardsTest2 {
         assertEquals(6, p2.getHand().size());
     }
 
-    @Disabled
+
     @Test
     void testMine() {
         p2.getHand().clear();
