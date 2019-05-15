@@ -4,6 +4,7 @@ import fr.umontpellier.iut.dominion.CardType;
 import fr.umontpellier.iut.dominion.ListOfCards;
 import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.cards.Card;
+import fr.umontpellier.iut.dominion.cards.common.type.ActionCard;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,17 +18,13 @@ import static fr.umontpellier.iut.dominion.CardType.Action;
  * Piochez jusqu'à ce que vous ayez 7 cartes en main. Chaque carte Action piochée peut être mise de côté.
  * Défaussez les cartes mises de côté lorsque vous avez terminé de piocher.
  */
-public class Library extends Card {
+public class Library extends ActionCard {
     public Library() {
         super("Library", 5);
     }
 
-    @Override
-    public List<CardType> getTypes() {
-        ArrayList types = new ArrayList<>();
-        types.add(Action);
-        return types;
-    }
+
+
 
     @Override
     public void play(Player p) {
