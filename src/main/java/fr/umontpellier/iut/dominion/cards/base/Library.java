@@ -1,16 +1,15 @@
 package fr.umontpellier.iut.dominion.cards.base;
 
-import fr.umontpellier.iut.dominion.CardType;
 import fr.umontpellier.iut.dominion.ListOfCards;
 import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.cards.Card;
 import fr.umontpellier.iut.dominion.cards.common.type.ActionCard;
+import static fr.umontpellier.iut.dominion.CardType.Action;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static fr.umontpellier.iut.dominion.CardType.Action;
+
 
 /**
  * Carte Bibliothèque (Library)
@@ -23,40 +22,34 @@ public class Library extends ActionCard {
         super("Library", 5);
     }
 
-
-/*
-
     @Override
     public void play(Player p) {
 
-        ListOfCards stock = new ListOfCards();
-        List<String> choices = Arrays.asList("y", "n");
+        ListOfCards side = new ListOfCards();
 
-        while (p.getCardsInHand().size() < 7) {
+        List<String> choices = Arrays.asList("y","n");
 
-            Card c = p.drawToHand();
+        boolean EmptyDraw = false;
 
-
-            if (c == null) {
-                break;
-            }
-
-
-            if (c.getTypes().contains(Action)) {
-
-                String input = p.chooseOption("Voulez-vous mettre la carte " + c.getName() + " de côté ? y / n.", choices, false);
-
-                if (input.equals("y")) {
-                    stock.add(p.removeFromHand(c.getName()));
+        while (p.getHand().size() < 7 && !EmptyDraw) {
+            Card drewCard = p.drawCard();
+            if (drewCard == null) {
+                EmptyDraw = true;
+            } else if (drewCard.getTypes().contains(Action)) {
+                String scan = p.chooseOption("Mettre la carte de coté ?", choices, false);
+                if (scan.equals("y")) {
+                    side.add(drewCard);
                 }
-
+                else {
+                    p.addToHand(drewCard);
+                }
+            }
+                else {
+                p.addToHand(drewCard);
             }
         }
-
-
-        for (Card c: stock) {
+        for (Card c: side) {
             p.discardCard(c);
         }
     }
-    */
 }
